@@ -1,0 +1,107 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 100%; height: 100%; overflow: hidden; background-color: #f6c1d9; }
+#escena { position: relative; width: 100vw; height: 100vh; overflow: hidden; }
+canvas { display: block; touch-action: none; cursor: grab; outline: none; }
+canvas:active { cursor: grabbing; }
+
+.control-sonido {
+  position: fixed;
+  z-index: 20;
+  top: max(18px, env(safe-area-inset-top));
+  right: max(18px, env(safe-area-inset-right));
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  border: 1px solid #602b4930;
+  border-radius: 50%;
+  background: #fff6fadb;
+  color: #602b49;
+  cursor: pointer;
+}
+
+.control-sonido:hover {
+  background: #fff6fa;
+}
+
+#noche {
+  right: calc(max(18px, env(safe-area-inset-right)) + 56px);
+  font: 27px/1 Arial, sans-serif;
+}
+
+#noche[aria-pressed="true"] {
+  background: #202849;
+  color: #fff6fa;
+}
+
+.control-sonido:focus-visible {
+  outline: 3px solid #602b49;
+  outline-offset: 4px;
+}
+
+.control-sonido svg {
+  width: 23px;
+  height: 23px;
+  pointer-events: none;
+}
+
+.datos-cursada {
+  position: fixed;
+  z-index: 10;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  box-sizing: border-box;
+  padding: 9px 16px max(9px, env(safe-area-inset-bottom));
+  background: #fff6fae0;
+  color: #602b49;
+  text-align: center;
+  font: 11px/1.5 Arial, sans-serif;
+}
+
+.datos-cursada p {
+  margin: 0;
+}
+
+.solo-lectores {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.accion-teclado:focus {
+  position: fixed;
+  z-index: 30;
+  top: 18px;
+  left: 18px;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 12px 16px;
+  overflow: visible;
+  clip-path: none;
+  border: 1px solid #602b49;
+  border-radius: 12px;
+  background: #fff6fa;
+  color: #602b49;
+}
+
+@media (max-width: 600px) {
+  .datos-cursada {
+    font-size: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .control-sonido {
+    width: 42px;
+    height: 42px;
+  }
+}
